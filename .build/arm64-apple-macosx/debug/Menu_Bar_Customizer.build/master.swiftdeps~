@@ -1,0 +1,7 @@
+version: "Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)"
+options: "ec4a1127f3ee908166802888597b2c8493a94d5104bd2a70719b47c0dd915230"
+build_start_time: [1686847135, 569277000]
+build_end_time: [1686847139, 196521000]
+inputs:
+  "/Users/arth/github/macOS-menu-bar-customizer/Sources/Menu Bar Customizer/ChangeColor.swift": !private [1686803530, 871787128]
+  "/Users/arth/github/macOS-menu-bar-customizer/Sources/Menu Bar Customizer/main.swift": [1686846994, 461905821]

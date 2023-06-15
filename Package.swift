@@ -16,7 +16,7 @@ let package = Package(
         .executableTarget(
             name: "Menu Bar Customizer",
             dependencies: [],
-            path: "Sources"
+            path: ""
         )
     ]
 );

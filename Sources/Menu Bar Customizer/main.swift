@@ -1,8 +1,34 @@
 import Cocoa
 import AppKit
 
+class ColorPickerWindowController: NSWindowController {
+    var colorWell: NSColorWell!
+
+    convenience init() {
+        let window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 300, height: 200),
+            styleMask: [.titled, .closable],
+            backing: .buffered,
+            defer: false
+        )
+        self.init(window: window)
+
+        colorWell = NSColorWell(frame: NSRect(x: 50, y: 100, width: 200, height: 50))
+        window.contentView?.addSubview(colorWell)
+    }
+
+    override func windowDidLoad() {
+        super.windowDidLoad()
+        // Additional setup code for the window
+    }
+
+    // Other methods and actions related to the color picker window
+}
+
 class AppDelegate: NSObject, NSApplicationDelegate {
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+    var colorPickerWindowController: NSWindowController?
+
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         if let button = statusItem.button {
@@ -58,8 +84,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     @objc func openColorPickerWindow(_ sender: Any?) {
-        print("Performing Action 1")
+        if colorPickerWindowController == nil {
+            colorPickerWindowController = ColorPickerWindowController()
+        }
+
+        colorPickerWindowController?.showWindow(nil)
+        colorPickerWindowController?.window?.orderFrontRegardless()
+        NSApp.activate(ignoringOtherApps: true)
     }
+
 
     @objc func doAction2(_ sender: Any?) {
         print("Performing Action 2")
